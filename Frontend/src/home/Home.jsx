@@ -3,7 +3,6 @@ import Banner from "../components/Banner";
 import PopularPhone from "./PopularPhone";
 import FavMobiles from "./FavMobiles";
 import OtherPhones from "./OtherPhones";
-import Review from "./Review";
 
 const Home = () => {
   return (
@@ -12,7 +11,6 @@ const Home = () => {
       <PopularPhone/>
       <FavMobiles/>
       <OtherPhones/>
-      <Review/>
     </div>
   );
 };

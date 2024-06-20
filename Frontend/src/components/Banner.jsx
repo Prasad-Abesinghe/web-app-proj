@@ -6,9 +6,9 @@ const Banner = () => {
         <div className="  md:w-1/2 space-y-8 h-full">
           <h2 className=" text-5xl font-bold leading-snug text-black">
             Buy a <br />{" "}
-            <span className=" text-accent">good mobile phone </span> <br />
+            <span className=" text-accent">Good Mobile Phone </span> <br />
             For the <br />
-            <span className=" text-accent"> best prices</span>
+            <span className=" text-accent"> Best Prices</span>
           </h2>
           <p className=" md:w-4/5">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam,

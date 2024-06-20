@@ -33,10 +33,6 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/blog",
-        element: <Blog />,
-      },
-      {
         path: "/phone/:id",
         element: <SinglePhone />,
         loader: ({ params }) =>

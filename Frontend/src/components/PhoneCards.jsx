@@ -9,11 +9,12 @@ import "swiper/css/pagination";
 import "./style.css";
 
 // import required modules
-import {Autoplay, Pagination,Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { Link } from "react-router-dom";
 
 import { FaCartShopping } from "react-icons/fa6";
+import { CgEye } from "react-icons/cg";
 
 const PhoneCards = ({ headline, phones }) => {
   return (
@@ -48,7 +49,7 @@ const PhoneCards = ({ headline, phones }) => {
               spaceBetween: 50,
             },
           }}
-          modules={[Pagination,Autoplay,Navigation]}
+          modules={[Pagination, Autoplay, Navigation]}
           className="mySwiper my-20"
         >
           {phones.map((phone) => (
@@ -56,24 +57,30 @@ const PhoneCards = ({ headline, phones }) => {
               key={phone._id}
               className=" mb-10 bg-primary text-white text-center border-black border-4"
             >
-              <Link to={`/phone/${phone._id}`}>
-                <div>
-                  <img src={phone.imageUrl} alt="" className=" w-full" />
-                  <div className=" absolute top-3 right-5 bg-accent hover:bg-black p-2 rounded">
-                    <FaCartShopping
-                      className="w-4 h-4 textwhi
+              <div>
+                <img src={phone.imageUrl} alt="" className=" w-full" />
+                <Link to={`/phone/${phone._id}`}>
+                  <div className=" absolute top-3 right-5 bg-primary hover:bg-black p-2 rounded">
+                    <CgEye
+                      className="w-4 h-4 text-white font-bold
                     "
                     />
                   </div>
+                </Link>
+                <div className=" absolute top-3 left-5 bg-accent hover:bg-black p-2 rounded">
+                  <FaCartShopping
+                    className="w-4 h-4 text-white font-bold
+                    "
+                  />
                 </div>
+              </div>
+              <div>
+                <h3>{phone.mobileName}</h3>
+                <p>{phone.brand}</p>
                 <div>
-                  <h3>{phone.mobileName}</h3>
-                  <p>{phone.brand}</p>
-                  <div>
-                    <p>${phone.price}</p>
-                  </div>
+                  <p>${phone.price}</p>
                 </div>
-              </Link>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
