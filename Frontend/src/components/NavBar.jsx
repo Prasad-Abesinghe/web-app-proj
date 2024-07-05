@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMobileAlt } from "react-icons/fa";
 import { FaBarsStaggered, FaCartShopping, FaXmark } from "react-icons/fa6";
@@ -6,8 +6,15 @@ import { CgProfile } from "react-icons/cg";
 import { AuthContext } from "../contects/AuthProvider";
 import "../index.css";
 import { Button } from "flowbite-react";
+//for side bar
+("use client");
+import { Drawer } from "flowbite-react";
 
 const NavBar = () => {
+  //for sidebar
+  const [isOpen, setIsOpen] = useState(true);
+  const handleClose = () => setIsOpen(false);
+
   const [isSticky, setSticky] = useState(false);
 
   const { user } = useContext(AuthContext);
@@ -34,7 +41,6 @@ const NavBar = () => {
     { link: "DashBoard", path: "/admin/dashboard" },
   ];
 
-
   return (
     <header className=" bg-white w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
       <nav
@@ -56,29 +62,54 @@ const NavBar = () => {
                   {link}
                 </Link>
               ))}
-              <Link>
-                <FaCartShopping className="text-[26px]" />
-              </Link>
+              <div>
+                <div className=" relative cursor-pointer">
+                  <button onClick={() => setIsOpen(true)}>
+                    <FaCartShopping className="text-[26px]" />
+                  </button>
 
-
-              {user? (<Link>
-                <div className="">
-                  <img
-                    src={user?.photoURL}
-                   // alt={<CgProfile />}
-                    defaultValue={<CgProfile />}
-                    className="rounded-full"
-                    width="30px"
-                  />
+                  <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
+                    0
+                  </div>
                 </div>
+                <div>
+                  <Drawer open={isOpen} onClose={handleClose} position="right">
+                    <Drawer.Header
+                      title="My Shopping Cart"
+                    />
+                    <Drawer.Items></Drawer.Items>
+                  </Drawer>
+                </div>
+              </div>
 
-                {/* <  CgProfile className="text-[26px]" /> */}
-              </Link>):(
-                <Link to="sign-up">                <Button className={` btn-primary border-none ${
-                  isSticky ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none" : ""
-                }`}>Sign In</Button>
+              {user ? (
+                <Link>
+                  <div className="">
+                    <img
+                      src={user?.photoURL}
+                      // alt={<CgProfile />}
+                      defaultValue={<CgProfile />}
+                      className="rounded-full"
+                      width="30px"
+                    />
+                  </div>
+
+                  {/* <  CgProfile className="text-[26px]" /> */}
                 </Link>
-              )}        
+              ) : (
+                <Link to="sign-up">
+                  {" "}
+                  <Button
+                    className={` btn-primary border-none ${
+                      isSticky
+                        ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
+                        : ""
+                    }`}
+                  >
+                    Sign In
+                  </Button>
+                </Link>
+              )}
             </ul>
           </div>
         </div>
