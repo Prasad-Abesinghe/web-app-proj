@@ -14,6 +14,7 @@ import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import Logout from "../components/Logout";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ShopLayout from "../shop/ShopLayout";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,26 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "sign-up",
+        element: <SignUp />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
+      },
+      {
         path: "/shop",
-        element: <Shop />,
+        element: <ShopLayout />,
+        children: [
+          {
+            path: "/shop",
+            element: <Shop />,
+          },
+        ],
       },
       {
         path: "/about",
@@ -68,17 +87,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "sign-up",
-    element: <SignUp />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },{
-    path:"logout",
-    element:<Logout/>
-  }
 ]);
 
 export default router;
