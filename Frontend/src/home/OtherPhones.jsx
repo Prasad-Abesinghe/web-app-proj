@@ -16,7 +16,7 @@ const OtherPhones = () => {
       <PhoneCards phones={phones} headline="Other Phones" />
       <div className="flex justify-center items-center">
         <Link to={"/shop"}>
-          <Button className=" btn-accent p-2 font-bold border-none">
+          <Button className=" btn-accent mb-5 p-2 font-bold border-none">
             See All Phones
           </Button>
         </Link>

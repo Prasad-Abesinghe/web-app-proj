@@ -52,18 +52,10 @@ const SignUp = () => {
         // ..
       });
   };
-  const loginbackground = {
-    width: "100%",
-    height: "min-h-screen",
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    //filter: "blur(2px)",
-  };
+
 
   return (
-    <div style={loginbackground}>
+    <div>
       <div className="min-h-screen flex">
         <div className="container mx-auto my-auto max-w-3xl h-full flex  bg-white rounded-lg shadow overflow-hidden">
           <div className="relative hidden flex-1 lg:block md:block xl:w-1/2 md:w-1/2 h-full">
