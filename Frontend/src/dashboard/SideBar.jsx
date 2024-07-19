@@ -1,16 +1,13 @@
 "use client";
 
 import { Sidebar } from "flowbite-react";
-import { BiBuoy } from "react-icons/bi";
 import {
   HiArrowSmRight,
   HiChartPie,
   HiInbox,
   HiOutlineCloudUpload,
-  HiShoppingBag,
   HiTable,
   HiUser,
-  HiViewBoards,
 } from "react-icons/hi";
 import { FaHome } from "react-icons/fa";
 
@@ -50,9 +47,6 @@ const SideBar = () => {
           <Sidebar.Item href="#" icon={HiUser}>
             Users
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
-            Products
-          </Sidebar.Item>
           <Sidebar.Item href="/login" icon={HiArrowSmRight}>
             Sign In
           </Sidebar.Item>
@@ -61,12 +55,6 @@ const SideBar = () => {
           </Sidebar.Item>
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Upgrade to Pro
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Documentation
-          </Sidebar.Item>
           <Sidebar.Item href="/" icon={FaHome}>
             Back to Home
           </Sidebar.Item>
