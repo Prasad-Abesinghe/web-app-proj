@@ -7,7 +7,7 @@ const ShopLayout = () => {
   return (
     <div>
         <NavBar/>
-        <div className=" flex sm:flex-col ">
+        <div className=" flex md:flex-col ">
             <ShopSideBar/>
             <Outlet/>
         </div>
