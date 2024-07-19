@@ -17,7 +17,6 @@ const SinglePhone = () => {
     useLoaderData();
   const { dispatch } = useCartItemListContext(); //////
   const addToCart = () => {
-    //////
     console.log("ran addToCart");
     dispatch({
       type: "ADD",

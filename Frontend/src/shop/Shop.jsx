@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "flowbite-react";
 import { Link } from "react-router-dom";
+import { useCartItemListContext } from "../hooks/useCartItemListContext";
 
 const Shop = () => {
   const [phones, setPhones] = useState([]);
-
+  const { dispatch } = useCartItemListContext();
+  const addToCart = (phone) => {
+    console.log("ran addToCart");
+    dispatch({
+      type: "ADD",
+      payload: {
+        _id: phone._id,
+        mobileName: phone.mobileName,
+        imageUrl: phone.imageUrl,
+        brand: phone.brand,
+        quantity: 1,
+        price: phone.price,
+      },
+    });
+  };
   useEffect(() => {
     fetch("http://localhost:5000/all-phones")
       .then((res) => res.json())
@@ -31,7 +46,7 @@ const Shop = () => {
                   ${phone.price}
                 </span>
               </div>
-              <button className=" w-full mb-2 btn-primary px-4.5 py-2 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+              <button className=" w-full mb-2 btn-primary px-4.5 py-2 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800" onClick={()=>{addToCart(phone)}}>
                 Add to cart
               </button>
               <Link to={`/phone/${phone._id}`}>

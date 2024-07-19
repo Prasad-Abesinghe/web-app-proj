@@ -32,7 +32,7 @@ const CartItemsListReducer = (state, action) => {
       var newTot = state.TotalQuantity;
       newTot -= state.cartItemsList.filter(
         (item) => item._id === action.payload._id
-      ).quantity;
+      )[0].quantity;
       return {
         cartItemsList: state.cartItemsList.filter(
           (item) => item._id !== action.payload._id
@@ -61,10 +61,11 @@ const CartItemsListReducer = (state, action) => {
       };
     case "QUANTITY_DOWN":
       var ChangedList = [];
+      var newTot = state.TotalQuantity;
       state.cartItemsList.forEach((cartItem) => {
         if (
           cartItem._id === action.payload._id &&
-          action.payload.quantity !== 0
+          action.payload.quantity > 0
         ) {
           ChangedList.push({
             mobileName: cartItem.mobileName,
