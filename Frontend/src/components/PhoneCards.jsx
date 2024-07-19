@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useCartItemListContext } from "../hooks/useCartItemListContext";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,6 +18,21 @@ import { FaCartShopping } from "react-icons/fa6";
 import { CgEye } from "react-icons/cg";
 
 const PhoneCards = ({ headline, phones }) => {
+  const { dispatch } = useCartItemListContext();
+  const addToCart = (phone) => {
+    console.log("ran addToCart");
+    dispatch({
+      type: "ADD",
+      payload: {
+        _id: phone._id,
+        mobileName: phone.mobileName,
+        imageUrl: phone.imageUrl,
+        brand: phone.brand,
+        quantity: 1,
+        price: phone.price,
+      },
+    });
+  };
   return (
     <div className=" my-20 px-4 lg:px-24">
       <h2 className=" text-5xl text-center font-bold text-black ">
@@ -71,6 +87,7 @@ const PhoneCards = ({ headline, phones }) => {
                   <FaCartShopping
                     className="w-4 h-4 text-white font-bold
                     "
+                    onClick={()=>{addToCart(phone)}}
                   />
                 </div>
               </div>
