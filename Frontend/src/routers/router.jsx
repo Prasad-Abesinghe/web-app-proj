@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../App";
 import Home from "../home/Home";
 import Shop from "../shop/Shop";
-import About from "../components/About";
 import Blog from "../components/Blog";
 import SinglePhone from "../shop/SinglePhone";
 import DashBoardLayout from "../dashboard/DashBoardLayout";
@@ -46,10 +45,6 @@ const router = createBrowserRouter([
             element: <Shop />,
           },
         ],
-      },
-      {
-        path: "/about",
-        element: <About />,
       },
       {
         path: "/phone/:id",

@@ -37,18 +37,13 @@ const NavBar = () => {
 
   //navItems
   const navItems = [
-    { link: "About", path: "/about" },
     { link: "Shop", path: "/shop" },
     { link: "DashBoard", path: "/admin/dashboard" },
   ];
 
   return (
-    <header className=" bg-white w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
-      <nav
-        className={` py-4 lg:px-24 px-4 ${
-          isSticky ? "sticky top-0 left-0 right-0 bg-primary text-white" : ""
-        }`}
-      >
+    <header className=" bg-primary w-full text-white fixed top-0 left-0 right-0 transition-all ease-in duration-300">
+      <nav className={` py-4 lg:px-24 px-4 `}>
         <div className="flex justify-between items-center text-base gap-8">
           <Link to="/" className=" text-2xl font-bold flex items-center gap-2">
             <FaMobileAlt className="inline-block" />
@@ -58,6 +53,18 @@ const NavBar = () => {
           </Link>
           <div className="flex justify-between">
             <ul className=" md:flex items-center space-x-12 hidden">
+            <div>
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="search a phone"
+              className=" py-2 px-8 lg:rounded-l-lg md:rounded-lg border-none outline-none"
+            />
+            <button className="btn-accent py-2 px-4 rounded-r-lg">
+              Search
+            </button>
+          </div>
               {navItems.map(({ link, path }) => (
                 <Link key={path} to={path} className="nav-link">
                   {link}

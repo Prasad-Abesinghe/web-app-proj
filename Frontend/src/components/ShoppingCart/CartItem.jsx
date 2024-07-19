@@ -15,7 +15,7 @@ export const CartItem = ({ item }) => {
 
   return (
     <div
-      className="flex w-full justify-between mb-4 
+      className="flex w-full text-black justify-between mb-4 
       items-center h-[120px] border-b"
     >
       {/* <div className="w-[110px] h-[110px] relative">
