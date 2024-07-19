@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import { FaMobileAlt } from "react-icons/fa";
 import { FaBarsStaggered, FaCartShopping, FaXmark } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import { AuthContext } from "../contects/AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
 import "../index.css";
 import { Button } from "flowbite-react";
 //for side bar
 ("use client");
 import { Drawer } from "flowbite-react";
-
+import { ShoppingCart } from "./ShoppingCart";
+import { useCartItemListContext } from "../hooks/useCartItemListContext";
 const NavBar = () => {
   //for sidebar
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = () => setIsOpen(false);
-
+  const { cartItemsList, TotalQuantity } = useCartItemListContext();
   const [isSticky, setSticky] = useState(false);
 
   const { user } = useContext(AuthContext);
@@ -69,15 +70,20 @@ const NavBar = () => {
                   </button>
 
                   <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
-                    0
+                    {TotalQuantity}
                   </div>
                 </div>
                 <div>
-                  <Drawer open={isOpen} onClose={handleClose} position="right">
-                    <Drawer.Header
-                      title="My Shopping Cart"
-                    />
-                    <Drawer.Items></Drawer.Items>
+                  <Drawer
+                    className="w-2/5"
+                    open={isOpen}
+                    onClose={handleClose}
+                    position="right"
+                  >
+                    <Drawer.Header title="My Shopping Cart" />
+                    <Drawer.Items>
+                      <ShoppingCart />
+                    </Drawer.Items>
                   </Drawer>
                 </div>
               </div>

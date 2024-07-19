@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../contects/AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
 import backgroundImage from "../assets/images/loginimage.jpg";
 
@@ -48,7 +48,6 @@ const Login = () => {
         // ..
       });
   };
-
 
   return (
     <div>

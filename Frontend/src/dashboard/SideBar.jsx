@@ -16,26 +16,32 @@ import { FaHome } from "react-icons/fa";
 
 import userImg from "../dashboard/profile.gif";
 import { useContext } from "react";
-import { AuthContext } from '../contects/AuthProvider'
+import { AuthContext } from "../context/AuthProvider";
 
 const SideBar = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   return (
     <Sidebar
-      className=" bg-slate-500/5 rounded-md"
+      className=" bg-slate-500/5 h-[100] relative rounded-md"
       aria-label="Sidebar with content separator example"
     >
-      <Sidebar.Logo href="#" className=" " img={user?.photoURL} imgAlt="Flowbite logo">
-        <p>
-          {user?.displayName||"Demo User"}
-        </p>
+      <Sidebar.Logo
+        href="#"
+        className=" "
+        img={user?.photoURL}
+        imgAlt="Flowbite logo"
+      >
+        <p>{user?.displayName || "Demo User"}</p>
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="/admin/dashboard/upload" icon={HiOutlineCloudUpload}>
+          <Sidebar.Item
+            href="/admin/dashboard/upload"
+            icon={HiOutlineCloudUpload}
+          >
             Upload Phone
           </Sidebar.Item>
           <Sidebar.Item href="/admin/dashboard/manage" icon={HiInbox}>

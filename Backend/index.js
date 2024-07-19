@@ -79,19 +79,19 @@ async function run() {
     app.get("/all-phones", async (req, res) => {
       let query = {};
       if (req.query?.brand) {
-          query = { brand: req.query.brand }
+        query = { brand: req.query.brand };
       }
       const result = await phoneCollection.find(query).toArray();
-      res.send(result)
-  })
+      res.send(result);
+    });
 
     //to get single phone data
     app.get("/phone/:id", async (req, res) => {
       const id = req.params.id;
       const filter = { _id: new ObjectId(id) };
       const result = await phoneCollection.findOne(filter);
-      res.send(result)
-  })
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
