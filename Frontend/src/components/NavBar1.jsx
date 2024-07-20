@@ -49,13 +49,16 @@ const NavBar1 = () => {
     { link: "DashBoard", path: "/admin/dashboard" },
   ];
   return (
-    <nav className="sticky top-0 z-50 py-3 border-b">
+    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-neutral-700/80 border-b">
       <div className="container px-4 mx-auto relative text-sm">
         <div className="flex justify-between items-center">
           <Link to="/" className=" text-2xl font-bold flex items-center gap-2">
             <FaMobileAlt className="inline-block" />
             <h1>
-              <span className=" text-accent">M</span>OBILES
+              <span className="font-bold bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent">
+                M
+              </span>
+              OBILES
             </h1>
           </Link>
           <div className="hidden md:flex">
@@ -70,7 +73,7 @@ const NavBar1 = () => {
               Search
             </button>
           </div>
-          <ul className=" hidden lg:flex ml-14 space-x-12">
+          <ul className=" hidden lg:flex justify-center items-center ml-14 space-x-12">
             {navItems.map(({ link, path }) => (
               <Link key={path} to={path} className="nav-link">
                 {link}

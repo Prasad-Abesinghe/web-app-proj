@@ -6,7 +6,7 @@ import OtherPhones from "./OtherPhones";
 
 const Home = () => {
   return (
-    <div className="  bg-slate-300">
+    <div className="">
       <Banner/>
       <PopularPhone/>
       <FavMobiles/>
