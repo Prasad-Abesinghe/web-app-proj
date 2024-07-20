@@ -51,20 +51,20 @@ const NavBar = () => {
               <span className=" text-accent">M</span>OBILES
             </h1>
           </Link>
-          <div className="flex justify-between">
-            <ul className=" md:flex items-center space-x-12 hidden">
-            <div>
+          <div>
             <input
               type="search"
               name="search"
               id="search"
               placeholder="search a phone"
-              className=" py-2 px-8 lg:rounded-l-lg md:rounded-lg border-none outline-none"
+              className=" py-2 px-8 lg:rounded-l-lg border-none outline-none"
             />
             <button className="btn-accent py-2 px-4 rounded-r-lg">
               Search
             </button>
           </div>
+          <div className="flex justify-between">
+            <ul className=" md:flex items-center space-x-12 hidden">
               {navItems.map(({ link, path }) => (
                 <Link key={path} to={path} className="nav-link">
                   {link}
