@@ -121,7 +121,7 @@ const NavBar1 = () => {
               <Link to="sign-up">
                 {" "}
                 <Button
-                  className={` btn-primary border-none ${
+                  className={` py-2 px-4 mx-3 rounded-md border ${
                     isSticky
                       ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
                       : ""
@@ -205,13 +205,8 @@ const NavBar1 = () => {
                 </Link>
               ) : (
                 <Link to="sign-up">
-                  {" "}
                   <Button
-                    className={` btn-primary border-none ${
-                      isSticky
-                        ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
-                        : ""
-                    }`}
+                    className={` py-2 px-4 mx-3 rounded-md border`}
                   >
                     Sign In
                   </Button>
