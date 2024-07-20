@@ -67,7 +67,7 @@ const NavBar1 = () => {
               name="search"
               id="search"
               placeholder="search a phone"
-              className=" py-2 px-8 lg:rounded-l-lg border-none outline-none"
+              className=" py-2 px-8 rounded-l-lg border-none outline-none"
             />
             <button className="btn-accent py-2 px-4 rounded-r-lg">
               Search
@@ -144,7 +144,7 @@ const NavBar1 = () => {
           </div>
         </div>
         {mobileDrawerOpen && (
-          <div className="fixed bg-white right-0 z-20 w-full p-12 flex flex-col justify-center items-center lg:hidden">
+          <div className="fixed bg-neutral-900 right-0 z-20 w-full p-12 flex flex-col justify-center items-center lg:hidden">
             <div className=" md:hidden lg:hidden flex">
               <input
                 type="search"
