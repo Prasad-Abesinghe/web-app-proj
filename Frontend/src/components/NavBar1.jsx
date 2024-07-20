@@ -3,9 +3,42 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
-import { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
+import { CgProfile } from "react-icons/cg";
+import { AuthContext } from "../context/AuthProvider";
+import "../index.css";
+import { Button } from "flowbite-react";
+
+//for side bar
+("use client");
+import { Drawer } from "flowbite-react";
+import { ShoppingCart } from "./ShoppingCart";
+import { useCartItemListContext } from "../hooks/useCartItemListContext";
 
 const NavBar1 = () => {
+  //for sidebar
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = () => setIsOpen(false);
+  const { cartItemsList, TotalQuantity } = useCartItemListContext();
+  const [isSticky, setSticky] = useState(false);
+
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.addEventListener("scroll", handleScroll);
+    };
+  }, []);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavBar = () => {
@@ -43,24 +76,60 @@ const NavBar1 = () => {
                 {link}
               </Link>
             ))}
-          </ul>
-          <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <div className=" relative cursor-pointer">
-              <button>
-                <FaCartShopping className="text-[26px]" />
-              </button>
+            <div>
+              <div className=" relative cursor-pointer">
+                <button onClick={() => setIsOpen(true)}>
+                  <FaCartShopping className="text-[26px]" />
+                </button>
 
-              <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
-                0
+                <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
+                  {TotalQuantity}
+                </div>
+              </div>
+              <div>
+                <Drawer
+                  className="w-2/5"
+                  open={isOpen}
+                  onClose={handleClose}
+                  position="right"
+                >
+                  <Drawer.Header title="My Shopping Cart" />
+                  <Drawer.Items>
+                    <ShoppingCart />
+                  </Drawer.Items>
+                </Drawer>
               </div>
             </div>
-            <a
-              href="#"
-              className=" bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md"
-            >
-              Create an Account
-            </a>
-          </div>
+            {user ? (
+              <Link>
+                <div className="">
+                  <img
+                    src={user?.photoURL}
+                    // alt={<CgProfile />}
+                    defaultValue={<CgProfile />}
+                    className="rounded-full"
+                    width="30px"
+                  />
+                </div>
+
+                {/* <  CgProfile className="text-[26px]" /> */}
+              </Link>
+            ) : (
+              <Link to="sign-up">
+                {" "}
+                <Button
+                  className={` btn-primary border-none ${
+                    isSticky
+                      ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
+                      : ""
+                  }`}
+                >
+                  Sign In
+                </Button>
+              </Link>
+            )}
+          </ul>
+
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavBar}>
               {mobileDrawerOpen ? (
@@ -93,21 +162,58 @@ const NavBar1 = () => {
               ))}
             </ul>
             <div className="flex space-x-12">
-              <div className=" relative cursor-pointer">
-                <button>
-                  <FaCartShopping className="text-[26px]" />
-                </button>
+              <div>
+                <div className=" relative cursor-pointer">
+                  <button onClick={() => setIsOpen(true)}>
+                    <FaCartShopping className="text-[26px]" />
+                  </button>
 
-                <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
-                  0
+                  <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
+                    {TotalQuantity}
+                  </div>
+                </div>
+                <div>
+                  <Drawer
+                    className="w-2/5"
+                    open={isOpen}
+                    onClose={handleClose}
+                    position="right"
+                  >
+                    <Drawer.Header title="My Shopping Cart" />
+                    <Drawer.Items>
+                      <ShoppingCart />
+                    </Drawer.Items>
+                  </Drawer>
                 </div>
               </div>
-              <a
-                href="#"
-                className=" bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md"
-              >
-                Create an Account
-              </a>
+              {user ? (
+                <Link>
+                  <div className="">
+                    <img
+                      src={user?.photoURL}
+                      // alt={<CgProfile />}
+                      defaultValue={<CgProfile />}
+                      className="rounded-full"
+                      width="30px"
+                    />
+                  </div>
+
+                  {/* <  CgProfile className="text-[26px]" /> */}
+                </Link>
+              ) : (
+                <Link to="sign-up">
+                  {" "}
+                  <Button
+                    className={` btn-primary border-none ${
+                      isSticky
+                        ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
+                        : ""
+                    }`}
+                  >
+                    Sign In
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         )}
