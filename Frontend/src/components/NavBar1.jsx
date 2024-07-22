@@ -67,7 +67,7 @@ const NavBar1 = () => {
               name="search"
               id="search"
               placeholder="search a phone"
-              className=" py-2 px-8 rounded-l-lg border-none outline-none"
+              className=" py-2 px-20 text-black  rounded-l-lg border-none outline-none"
             />
             <button className="btn-accent py-2 px-4 rounded-r-lg">
               Search
@@ -145,21 +145,21 @@ const NavBar1 = () => {
         </div>
         {mobileDrawerOpen && (
           <div className="fixed bg-neutral-900 right-0 z-20 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-            <div className=" md:hidden lg:hidden flex">
+            <div className=" mb-4 md:hidden lg:hidden flex">
               <input
                 type="search"
                 name="search"
                 id="search"
                 placeholder="search a phone"
-                className=" py-2 px-8 lg:rounded-l-lg border-none outline-none"
+                className=" py-2 px-8 rounded-l-lg border-none outline-none"
               />
               <button className="btn-accent py-2 px-4 rounded-r-lg">
                 Search
               </button>
             </div>
-            <ul className=" flex flex-col">
+            <ul className=" flex flex-col sm:flex-col">
               {navItems.map(({ link, path }) => (
-                <Link key={path} to={path} className=" py-4">
+                <Link key={path} to={path} className=" nav-link py-4">
                   {link}
                 </Link>
               ))}

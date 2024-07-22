@@ -32,7 +32,7 @@ const Shop = () => {
       <div className=" grid gap-8 my-12 lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-2 grid-cols-1 ">
         {phones.map((phone) => (
           <Card className="max-w-md items-center border-none hover:scale-110 ">
-            <div className=" w-full bg-gradient-to-b from-gray-600 via-black to-gray-700 p-4 rounded-md">
+            <div className=" w-full border-orange-800 border bg-gradient-to-b from-gray-600 via-black to-black p-4 rounded-md">
               <div className=" flex flex-col gap-2 justify-center items-center">
                 <img src={phone.imageUrl} alt="" className=" w-full rounded-md" />
 
