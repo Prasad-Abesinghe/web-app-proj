@@ -12,7 +12,7 @@ const FavMobiles = () => {
             Mobile here!
           </span>
         </h2>
-        <p className=" mb-10 text-lg md:w-5/6">
+        <p className=" mb-10 text-neutral-500 text-lg md:w-5/6">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
           provident sint exercitationem quasi pariatur architecto minima
           cupiditate magni molestiae maxime dolores laboriosam adipisci
