@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { CgEye } from "react-icons/cg";
 
-const PhoneCards = ({ headline, phones }) => {
+const PhoneCards = ({ headline, phones,headline1 }) => {
   const { dispatch } = useCartItemListContext();
   const addToCart = (phone) => {
     console.log("ran addToCart");
@@ -35,8 +35,8 @@ const PhoneCards = ({ headline, phones }) => {
   };
   return (
     <div className=" my-20 px-4 lg:px-24">
-      <h2 className=" text-5xl text-center font-bold text-black ">
-        {headline}
+      <h2 className=" text-5xl text-center font-bold ">
+        {headline} <span className=" bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">{headline1}</span>
       </h2>
       {/*card */}
       <div>

@@ -13,7 +13,7 @@ const OtherPhones = () => {
   }, []);
   return (
     <div>
-      <PhoneCards phones={phones} headline="Other Phones" />
+      <PhoneCards phones={phones} headline="Other" headline1="Phones" />
       <div className="flex justify-center items-center">
         <Link to={"/shop"}>
           <Button className=" btn-accent mb-5 p-2 font-bold border-none">

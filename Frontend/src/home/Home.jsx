@@ -1,5 +1,4 @@
 import React from "react";
-import Banner from "./Banner";
 import PopularPhone from "./PopularPhone";
 import FavMobiles from "./FavMobiles";
 import OtherPhones from "./OtherPhones";
@@ -10,7 +9,6 @@ const Home = () => {
     <>
       <div className="max-w-7xl mx-auto pt-20 px-6">
         <HeroSection />
-        <Banner />
       </div>
       <PopularPhone />
       <FavMobiles />

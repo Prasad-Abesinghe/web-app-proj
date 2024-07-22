@@ -10,7 +10,7 @@ const PopularPhone = () => {
   }, []);
   return (
     <div>
-      <PhoneCards phones={phones} headline="Popular Phones" />
+      <PhoneCards phones={phones} headline="Popular " headline1="Phones" />
     </div>
   );
 };
