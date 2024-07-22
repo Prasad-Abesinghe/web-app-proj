@@ -6,7 +6,7 @@ export const ShoppingCart = () => {
   const { cartItemsList } = useCartItemListContext();
  
   return (
-    <div>
+    <div className=" text-black">
       {cartItemsList &&
         cartItemsList.map((cartItem, index) => (
           <CartItem id={cartItem.id} item={cartItem} />
