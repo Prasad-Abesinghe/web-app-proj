@@ -11,7 +11,10 @@ const Home = () => {
         <HeroSection />
       </div>
       <PopularPhone />
-      <FavMobiles />
+      <div className="max-w-7xl mx-auto pt-20 px-6">
+        <FavMobiles />
+      </div>
+
       <OtherPhones />
     </>
   );

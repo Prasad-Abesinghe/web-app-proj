@@ -71,7 +71,7 @@ const PhoneCards = ({ headline, phones,headline1 }) => {
           {phones.map((phone) => (
             <SwiperSlide
               key={phone._id}
-              className=" mb-10 bg-primary text-white text-center border-black border-4"
+              className=" mb-10  bg-gradient-to-r from-orange-500 to-red-800 text-transparent text-white text-center border-black border-4"
             >
               <div>
                 <img src={phone.imageUrl} alt="" className=" w-full" />
