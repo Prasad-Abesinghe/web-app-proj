@@ -10,25 +10,23 @@ import {
   HiUser,
 } from "react-icons/hi";
 import { FaHome } from "react-icons/fa";
-
-import userImg from "../dashboard/profile.gif";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
 const SideBar = () => {
   const { user } = useContext(AuthContext);
   return (
+
     <Sidebar
-      className=" bg-slate-500/5 h-[100] relative rounded-md"
-      aria-label="Sidebar with content separator example"
+      className=" h-full relative"
     >
       <Sidebar.Logo
         href="#"
         className=" "
         img={user?.photoURL}
-        imgAlt="Flowbite logo"
+        imgAlt="{ }"
       >
-        <p>{user?.displayName || "Demo User"}</p>
+        <p className=" text-black">{user?.displayName || "Demo User"}</p>
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
@@ -61,6 +59,7 @@ const SideBar = () => {
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
+
   );
 };
 

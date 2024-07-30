@@ -91,7 +91,7 @@ const NavBar1 = () => {
               </div>
               <div>
                 <Drawer
-                  className="w-2/5"
+                  className="w-2/5 text-black"
                   open={isOpen}
                   onClose={handleClose}
                   position="right"

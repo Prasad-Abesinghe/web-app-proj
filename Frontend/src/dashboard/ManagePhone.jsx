@@ -25,8 +25,8 @@ const ManagePhone = () => {
   };
   return (
     <div className="px-4 my-12">
-      <h2 className="mb-8 text-3xl font-bold">Manage phones</h2>
-      <table className=" lg:w-[1180px] w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <h2 className="mb-8 text-3xl text-black font-bold">Manage phones</h2>
+      <table className=" lg:w-[1180px]  w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3">
@@ -67,7 +67,7 @@ const ManagePhone = () => {
                   className=""
                   to={`/admin/dashboard/edit-phones/${phone._id}`}
                 >
-                  <button className=" btn-primary px-6 py-1 lg:mr-2 mb-2 font-semibold text-white rounded-md">
+                  <button className=" btn-primary px-6 py-1 lg:mr-2 mb-2 font-semibold text-black rounded-md">
                   
                     Edit
                   </button>
