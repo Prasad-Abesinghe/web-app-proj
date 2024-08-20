@@ -10,7 +10,6 @@ function App() {
     <>
       <CartItemsListProvider>
         <NavBar1 />
-        
         <div className=" min-h-screen">
           <Outlet />
         </div>

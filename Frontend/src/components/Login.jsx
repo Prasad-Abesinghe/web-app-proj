@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
-import backgroundImage from "../assets/images/loginimage.jpg";
+import backgroundImage from "../assets/images/loginimage.png";
 
 const Login = () => {
   const { login, loginWithGoogle } = useContext(AuthContext);
@@ -52,11 +52,11 @@ const Login = () => {
   return (
     <div>
       <div className="min-h-screen flex">
-        <div className="container mx-auto my-auto max-w-3xl h-full flex  bg-white rounded-lg shadow overflow-hidden">
+        <div className="container mx-auto my-auto max-w-3xl h-full flex  bg-white bg-opacity-50 rounded-lg shadow overflow-hidden">
           <div className="relative hidden flex-1 lg:block md:block xl:w-1/2 md:w-1/2 h-full">
             <img
               className=" mt-16 w-full object-cover my-auto"
-              src="https://m.media-amazon.com/images/I/51h5pDV1YSL._AC_UF1000,1000_QL80_.jpg"
+              src={backgroundImage}
               alt="my zomato"
             />
           </div>

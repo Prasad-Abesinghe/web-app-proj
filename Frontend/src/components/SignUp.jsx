@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
-import backgroundImage from "../assets/images/loginimage.jpg";
+import backgroundImage from "../assets/images/loginimage.png";
 
 const SignUp = () => {
   const { createUser, loginWithGoogle } = useContext(AuthContext);
@@ -66,7 +66,7 @@ const SignUp = () => {
           </div>
           <div className="w-full xl:w-1/2 p-8 flex-1">
             <form onSubmit={handleSignUp}>
-              <h1 className=" text-2xl text-black font-bold">Create an Account</h1>
+              <h1 className=" text-2xl text-gray-600 font-bold">Create an Account</h1>
               <div>
                 <p className=" text-gray-600">
                   If you have an Account. Please
