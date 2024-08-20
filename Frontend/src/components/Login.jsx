@@ -62,7 +62,7 @@ const Login = () => {
           </div>
           <div className="w-full xl:w-1/2 p-8 flex-1">
             <form onSubmit={handleLogin}>
-              <h1 className=" text-2xl font-bold">Sign in to your account</h1>
+              <h1 className=" text-2xl text-black font-bold">Sign in to your account</h1>
               <div>
                 <span className="text-gray-600 text-sm">
                   Don't have an account?
@@ -114,7 +114,7 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <div className=" flex w-full items-center flex-col mt-5 gap-3">
+            <div className=" flex text-black w-full items-center flex-col mt-5 gap-3">
               <button onClick={handleRegister} className="block">
                 <img
                   src={googleLogo}
