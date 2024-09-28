@@ -20,7 +20,7 @@ import { CgEye } from "react-icons/cg";
 const PhoneCards = ({ headline, phones,headline1 }) => {
   const { dispatch } = useCartItemListContext();
   const addToCart = (phone) => {
-    console.log("ran addToCart");
+
     dispatch({
       type: "ADD",
       payload: {
@@ -34,7 +34,7 @@ const PhoneCards = ({ headline, phones,headline1 }) => {
     });
   };
   return (
-    <div className=" my-20 px-4 lg:px-24">
+    <div className=" my-20 px-4 lg:px-24 z-0">
       <h2 className=" text-5xl text-center font-bold ">
         {headline} <span className=" bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">{headline1}</span>
       </h2>

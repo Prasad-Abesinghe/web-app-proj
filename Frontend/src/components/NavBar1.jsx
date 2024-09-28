@@ -49,122 +49,40 @@ const NavBar1 = () => {
     { link: "DashBoard", path: "/admin/dashboard" },
   ];
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-neutral-700/80 border-b">
-      <div className="container px-4 mx-auto relative text-sm">
-        <div className="flex justify-between items-center">
-          <Link to="/" className=" text-2xl font-bold flex items-center gap-2">
-            <FaMobileAlt className="inline-block" />
-            <h1>
-              <span className="font-bold bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent">
-                M
-              </span>
-              OBILES
-            </h1>
-          </Link>
-          <div className="hidden md:flex">
-            <input
-              type="search"
-              name="search"
-              id="search"
-              placeholder="search a phone"
-              className=" py-2 px-20 text-black  rounded-l-lg border-none outline-none"
-            />
-            <button className="btn-accent py-2 px-4 rounded-r-lg">
-              Search
-            </button>
-          </div>
-          <ul className=" hidden lg:flex justify-center items-center ml-14 space-x-12">
-            {navItems.map(({ link, path }) => (
-              <Link key={path} to={path} className="nav-link">
-                {link}
-              </Link>
-            ))}
-            <div>
-              <div className=" relative cursor-pointer">
-                <button onClick={() => setIsOpen(true)}>
-                  <FaCartShopping className="text-[26px]" />
-                </button>
-
-                <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
-                  {TotalQuantity}
-                </div>
-              </div>
-              <div>
-                <Drawer
-                  className="w-2/5 text-black"
-                  open={isOpen}
-                  onClose={handleClose}
-                  position="right"
-                >
-                  <Drawer.Header title="My Shopping Cart" />
-                  <Drawer.Items>
-                    <ShoppingCart />
-                  </Drawer.Items>
-                </Drawer>
-              </div>
-            </div>
-            {user ? (
-              <Link>
-                <div className="">
-                  <img
-                    src={user?.photoURL}
-                    // alt={<CgProfile />}
-                    defaultValue={<CgProfile />}
-                    className="rounded-full"
-                    width="30px"
-                  />
-                </div>
-
-                {/* <  CgProfile className="text-[26px]" /> */}
-              </Link>
-            ) : (
-              <Link to="sign-up">
-                {" "}
-                <Button
-                  className={` py-2 px-4 mx-3 rounded-md border ${
-                    isSticky
-                      ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
-                      : ""
-                  }`}
-                >
-                  Sign In
-                </Button>
-              </Link>
-            )}
-          </ul>
-
-          <div className="lg:hidden md:flex flex-col justify-end">
-            <button onClick={toggleNavBar}>
-              {mobileDrawerOpen ? (
-                <RxCross1 className="text-[26px]" />
-              ) : (
-                <MdMenu className="text-[26px]" />
-              )}
-            </button>
-          </div>
-        </div>
-        {mobileDrawerOpen && (
-          <div className="fixed bg-neutral-900 right-0 z-20 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-            <div className=" mb-4 md:hidden lg:hidden flex">
+    <div className="sticky top-0">
+      <nav className="sticky top-0 py-3 backdrop-blur-lg border-neutral-700/80 border-b z-1000  ">
+        <div className="container px-4 mx-auto relative text-sm">
+          <div className="flex justify-between items-center">
+            <Link
+              to="/"
+              className=" text-2xl font-bold flex items-center gap-2"
+            >
+              <FaMobileAlt className="inline-block" />
+              <h1>
+                <span className="font-bold bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent">
+                  M
+                </span>
+                OBILES
+              </h1>
+            </Link>
+            <div className="hidden md:flex">
               <input
                 type="search"
                 name="search"
                 id="search"
                 placeholder="search a phone"
-                className=" py-2 px-8 rounded-l-lg border-none outline-none"
+                className=" py-2 px-20 text-black  rounded-l-lg border-none outline-none"
               />
               <button className="btn-accent py-2 px-4 rounded-r-lg">
                 Search
               </button>
             </div>
-            <ul className=" flex flex-col sm:flex-col">
+            <ul className=" hidden lg:flex justify-center items-center ml-14 space-x-12">
               {navItems.map(({ link, path }) => (
-                <Link key={path} to={path} className=" nav-link py-4">
+                <Link key={path} to={path} className="nav-link">
                   {link}
                 </Link>
               ))}
-            </ul>
-            <div className="flex space-x-12">
               <div>
                 <div className=" relative cursor-pointer">
                   <button onClick={() => setIsOpen(true)}>
@@ -174,19 +92,6 @@ const NavBar1 = () => {
                   <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
                     {TotalQuantity}
                   </div>
-                </div>
-                <div>
-                  <Drawer
-                    className="w-2/5"
-                    open={isOpen}
-                    onClose={handleClose}
-                    position="right"
-                  >
-                    <Drawer.Header title="My Shopping Cart" />
-                    <Drawer.Items>
-                      <ShoppingCart />
-                    </Drawer.Items>
-                  </Drawer>
                 </div>
               </div>
               {user ? (
@@ -205,18 +110,102 @@ const NavBar1 = () => {
                 </Link>
               ) : (
                 <Link to="sign-up">
+                  {" "}
                   <Button
-                    className={` py-2 px-4 mx-3 rounded-md border`}
+                    className={` py-2 px-4 mx-3 rounded-md border ${
+                      isSticky
+                        ? "sticky btn-accent bg-[#D82349] hover:bg-[#B32241] border-none"
+                        : ""
+                    }`}
                   >
                     Sign In
                   </Button>
                 </Link>
               )}
+            </ul>
+
+            <div className="lg:hidden md:flex flex-col justify-end">
+              <button onClick={toggleNavBar}>
+                {mobileDrawerOpen ? (
+                  <RxCross1 className="text-[26px]" />
+                ) : (
+                  <MdMenu className="text-[26px]" />
+                )}
+              </button>
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+          {mobileDrawerOpen && (
+            <div className="fixed bg-neutral-900 right-0 z-20 w-full p-12 flex flex-col justify-center items-center lg:hidden">
+              <div className=" mb-4 md:hidden lg:hidden flex">
+                <input
+                  type="search"
+                  name="search"
+                  id="search"
+                  placeholder="search a phone"
+                  className=" py-2 px-8 rounded-l-lg border-none outline-none"
+                />
+                <button className="btn-accent py-2 px-4 rounded-r-lg">
+                  Search
+                </button>
+              </div>
+              <ul className=" flex flex-col sm:flex-col">
+                {navItems.map(({ link, path }) => (
+                  <Link key={path} to={path} className=" nav-link py-4">
+                    {link}
+                  </Link>
+                ))}
+              </ul>
+              <div className="flex space-x-12">
+                <div>
+                  <div className=" relative cursor-pointer">
+                    <button onClick={() => setIsOpen(true)}>
+                      <FaCartShopping className="text-[26px]" />
+                    </button>
+
+                    <div className="bg-accent w-[18px] h-[18px] absolute -right-1 -bottom-1 rounded-full text-white flex items-center justify-center text-sm font-medium">
+                      {TotalQuantity}
+                    </div>
+                  </div>
+                </div>
+                {user ? (
+                  <Link>
+                    <div className="">
+                      <img
+                        src={user?.photoURL}
+                        // alt={<CgProfile />}
+                        defaultValue={<CgProfile />}
+                        className="rounded-full"
+                        width="30px"
+                      />
+                    </div>
+
+                    {/* <  CgProfile className="text-[26px]" /> */}
+                  </Link>
+                ) : (
+                  <Link to="sign-up">
+                    <Button className={` py-2 px-4 mx-3 rounded-md border`}>
+                      Sign In
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
+      <Drawer
+        className="w-2/5 text-black z-50 fixed top-14 sm:top-20"
+        open={isOpen}
+        onClose={handleClose}
+        position="right"
+      >
+        <Drawer.Header title="My Shopping Cart" />
+        <Drawer.Items>
+          <ShoppingCart />
+        </Drawer.Items>
+      </Drawer>
+    </div>
   );
 };
 
